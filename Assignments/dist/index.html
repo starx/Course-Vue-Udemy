@@ -31,6 +31,18 @@
             </div>
         </div>
     </section>
+    <section class="row" v-if="playerWon != null" style="text-align: center;">
+        <div class="small-12 columns">
+            <template v-if='playerWon === true'>
+                <h1>You have won!!!</h1>
+                <img src="https://media2.giphy.com/media/9xt1MUZqkneFiWrAAD/giphy.gif?cid=790b76118dfc74d6e9f9b8bc23e458900623049e3968a660&rid=giphy.gif">
+            </template>
+            <template v-else-if='playerWon === false'>
+                <h2>Oops! You Lost. But, do try again.</h2>
+                <img src="https://media0.giphy.com/media/3oz8xDzuVDbKoU4shi/giphy.gif?cid=790b7611a58a6a3c632eeb2eb9a93e9c315449d2d31dc23a&rid=giphy.gif">
+            </template>
+        </div>
+    </section>
     <section class="row controls" v-if="!gameIsRunning">
         <div class="small-12 columns">
             <button id="start-game" @click="startGame">START NEW GAME</button>
@@ -39,15 +51,24 @@
     <section class="row controls" v-else>
         <div class="small-12 columns">
             <button id="attack" @click="attackMonster">ATTACK</button>
-            <button id="special-attack">SPECIAL ATTACK</button>
-            <button id="heal">HEAL</button>
-            <button id="give-up">GIVE UP</button>
+            <button id="special-attack" @click="specialAttackMonster">SPECIAL ATTACK ({{ specialAttacks }} left)</button>
+            <button id="heal" @click="healPlayer">HEAL ({{ healthPotions }} left)</button>
+            <button id="give-up" @click="giveUpPlayer">GIVE UP</button>
         </div>
     </section>
-    <section class="row log">
+    <section class="row log" v-if="turns.length > 0">
         <div class="small-12 columns">
             <ul>
-                <li>
+                <li
+                    v-for="turn in turns"
+                    :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}"
+                >
+                    <template v-if="turn.isPlayer === true">
+                        Player damaged {{ turn.value }} to monster.
+                    </template>
+                    <template v-else>
+                        Monster damaged {{ turn.value }} to player.
+                    </template>
 
                 </li>
             </ul>
