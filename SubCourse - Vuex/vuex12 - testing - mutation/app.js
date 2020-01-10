@@ -17,11 +17,21 @@ const store = new Vuex.Store({
     }
 })
 
+// export const mutations = {
+//     increment: state => state.count++
+// }
 
-
-// Testing
+// Testing mutations
 mocha.setup('bdd');
 let assert = chai.assert;
 let expect = chai.expect;
+
+describe('mutations', () => {
+    it('INCREMENT', () => {
+        store.commit('increment');
+        expect(store.state.count).to.equal(1)
+    })
+})
+
 
 mocha.run();
