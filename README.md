@@ -133,3 +133,9 @@ When working with a Project created by the CLI (using Webpack!), you can easily 
 You should see a "Webpack" folder which you may open to see all your files included in the project (see image below, in orange box).
 
 You can open any file there and set *breakpoints* etc. to debug your running application.
+
+## An Introduction to Components
+
+If you want to learn more about VueJS Components, you may want to have a look at this Article from the official Docs (important: It does cover Topics which will be taught in the next Course Modules!): http://vuejs.org/guide/components.html
+
+Also see: https://vuejs.org/v2/guide/components-registration.html
