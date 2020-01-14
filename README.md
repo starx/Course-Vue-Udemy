@@ -139,3 +139,15 @@ You can open any file there and set *breakpoints* etc. to debug your running app
 If you want to learn more about VueJS Components, you may want to have a look at this Article from the official Docs (important: It does cover Topics which will be taught in the next Course Modules!): http://vuejs.org/guide/components.html
 
 Also see: https://vuejs.org/v2/guide/components-registration.html
+
+## Communicating between components
+
+Official Docs - Props: http://vuejs.org/guide/components.html#Props
+Official Docs - Custom Events: http://vuejs.org/guide/components.html#Custom-Events
+Official Docs - Non-Parent-Child Communication: http://vuejs.org/guide/components.html#Non-Parent-Child-Communication
+
+## Advanced component usage
+
+Official Docs - Slots: http://vuejs.org/guide/components.html#Content-Distribution-with-Slots
+Official Docs - Dynamic Components: http://vuejs.org/guide/components.html#Dynamic-Components
+Official Docs - Misc: http://vuejs.org/guide/components.html#Misc
