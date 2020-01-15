@@ -1,11 +1,15 @@
 <template>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3">
-      <label>Quote</label>
-      <textarea class="form-control" rows="3" v-model="quote"></textarea>
+  <div>
+    <div class="row justify-content-center">
+      <div class="col-sm-8 col-12 col-md-6">
+        <label>Quote</label>
+        <textarea class="form-control" rows="3" v-model="quote"></textarea>
+      </div>
     </div>
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3">
-      <button class="btn btn-primary" @click.prevent="createNew">Add quote</button>
+    <div class="row justify-content-center my-5">
+      <div class="col-sm-8 col-12 col-md-6">
+        <button class="btn btn-primary" @click.prevent="createNew">Add quote</button>
+      </div>
     </div>
   </div>
 </template>
