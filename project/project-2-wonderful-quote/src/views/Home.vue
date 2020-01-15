@@ -1,9 +1,14 @@
 <template>
   <div class="container">
-    <Header></Header>
+    <Header
+      :quoteCount="quotes.length"
+      :maxQuotes="maxQuotes"
+    ></Header>
     <hr>
     <new-quote @quoteAdded="addQuote"></new-quote>
-    <quote-grid :quotes="quotes"></quote-grid>
+    <quote-grid
+      @quoteDeleted="deleteQuote"
+      :quotes="quotes"></quote-grid>
     <Footer></Footer>
   </div>
 </template>
@@ -22,14 +27,21 @@ export default {
       quotes: [
         'Just a quote to see something',
       ],
-      maxQuotes: 10,
+      maxQuotes: 2,
     };
   },
   computed: {
   },
   methods: {
     addQuote(quote) {
-      this.quotes.push(quote);
+      if (this.quotes.length >= this.maxQuotes) {
+        alert('Please delete quote first');
+      } else {
+        this.quotes.push(quote);
+      }
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1);
     },
   },
   components: {
