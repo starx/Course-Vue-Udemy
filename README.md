@@ -155,3 +155,8 @@ Official Docs - Misc: http://vuejs.org/guide/components.html#Misc
 ## Handling User Input with Forms
 
 Official Docs - Forms: http://vuejs.org/guide/forms.html
+
+## Better state management with vuex
+
+Vuex Github Page: https://github.com/vuejs/vuex
+Vuex Documenation: https://vuex.vuejs.org/en/
