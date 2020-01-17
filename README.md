@@ -160,3 +160,14 @@ Official Docs - Forms: http://vuejs.org/guide/forms.html
 
 Vuex Github Page: https://github.com/vuejs/vuex
 Vuex Documenation: https://vuex.vuejs.org/en/
+
+## Connecting to Servers via Http - Suing vue-resource
+
+vue-resource on Github: https://github.com/yyx990803/vue-resource
+Some Code Recipes for vue-resource: https://github.com/yyx990803/vue-resource/blob/master/docs/recipes.md
+Template URLs: https://medialize.github.io/URI.js/uri-template.html
+Requests and Responses (incl. Different File Formats): https://github.com/yyx990803/vue-resource/blob/master/docs/http.md
+
+## Using Axios instead of vue-resource
+
+Axios: https://github.com/axios/axios

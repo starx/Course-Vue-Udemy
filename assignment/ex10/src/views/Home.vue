@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row justify-content-md-center"">
+    <div class="row justify-content-md-center">
       <div class="col-12 col-sm-8 com-dh-6">
         <h1>Directive Exercise</h1>
         <!-- Exercise -->
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'home',
-
+  directives
   data() {
     return {
       activeServerId: null,
@@ -32,16 +32,11 @@ export default {
     },
   },
   methods: {
-    selectServer(serverId) {
-      console.log('serverId', serverId);
-      this.activeServerId = serverId;
+    runThisFunction() {
+      console.log('ran this function');
     },
   },
   components: {
-    Header,
-    Footer,
-    Servers,
-    ServerDetails,
   },
 };
 </script>
