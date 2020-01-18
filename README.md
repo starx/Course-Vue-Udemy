@@ -156,6 +156,20 @@ Official Docs - Misc: http://vuejs.org/guide/components.html#Misc
 
 Official Docs - Forms: http://vuejs.org/guide/forms.html
 
+## Using and Creative directives
+
+Official Docs - Custom Directives: http://vuejs.org/guide/custom-directive.html
+
+## Improving your App with Filters and Mmixins
+
+Official Docs - Filters: https://vuejs.org/v2/guide/filters.html
+Official Docs - Mixins: http://vuejs.org/guide/mixins.html
+
+## Routing in Vue JS application
+
+vue-router Github Page: https://github.com/vuejs/vue-router
+vue-router Documentation:https://router.vuejs.org/en/
+
 ## Better state management with vuex
 
 Vuex Github Page: https://github.com/vuejs/vuex
