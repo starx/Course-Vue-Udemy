@@ -4,7 +4,7 @@
       <div class="col-12 col-sm-8 com-dh-6">
         <h1>Directive Exercise</h1>
         <!-- Exercise -->
-        <button v-myon:click="runThisFunction()">Fantastic button</button>
+        <button v-myon:click="runThisFunction">Fantastic button</button>
       </div>
     </div>
   </div>
@@ -13,22 +13,20 @@
 <script>
 export default {
   name: 'home',
-  directives
-  data() {
-    return {
-      activeServerId: null,
-      servers: [
-        { id: 1, status: 'normal' },
-        { id: 2, status: 'critical' },
-        { id: 3, status: 'unknown' },
-        { id: 4, status: 'normal' },
-      ],
-    };
-  },
-  computed: {
-    activeServer() {
-      console.log('activeServerId', this.activeServerId);
-      return this.servers.find(element => element.id === this.activeServerId);
+  directives: {
+    myon: {
+      bind(el, binding) {
+        switch (binding.arg) {
+          case 'click':
+            // let fnName = binding.value;
+
+            el.addEventListener('click', binding.value);
+            break;
+          default:
+            console.error('Not supported');
+            break;
+        }
+      },
     },
   },
   methods: {
