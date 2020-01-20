@@ -1,12 +1,26 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="container">
+    <app-header></app-header>
+    <div class="row">
+      <div class="col-12">
+        <router-view/>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
+
+<script>
+import Header from '@/components/Header.vue';
+
+export default {
+  components: {
+    appHeader: Header,
+  },
+  created() {
+    this.$store.dispatch('initStocks');
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
