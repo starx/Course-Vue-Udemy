@@ -9,7 +9,10 @@ const mutations = {
     state.stocks = payload;
   },
   RND_STOCKS(state) {
-    console.log(state);
+    /* eslint no-param-reassign: ["error", { "props": false }] */
+    state.stocks.forEach((stock) => {
+      stock.price = Math.round(stock.price * (1 + Math.random() - 0.5));
+    });
   },
 };
 
@@ -19,18 +22,19 @@ const getters = {
 
 const actions = {
   buyStock: ({ commit }, order) => {
-    console.log(order);
-    commit();
+    commit('portfolio/BUY_STOCK', order, { root: true });
   },
   initStocks: ({ commit }) => {
     commit('SET_STOCKS', stocks);
   },
   randomizeStocks: ({ commit }) => {
+    console.log('Randomising');
     commit('RND_STOCKS');
   },
 };
 
 export default {
+  namespaced: true,
   state: data,
   mutations,
   getters,

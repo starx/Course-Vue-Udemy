@@ -182,6 +182,10 @@ Some Code Recipes for vue-resource: https://github.com/yyx990803/vue-resource/bl
 Template URLs: https://medialize.github.io/URI.js/uri-template.html
 Requests and Responses (incl. Different File Formats): https://github.com/yyx990803/vue-resource/blob/master/docs/http.md
 
+##
+
+Vue Developer Tools: https://github.com/vuejs/vue-devtools
+
 ## Using Axios instead of vue-resource
 
 Axios: https://github.com/axios/axios
