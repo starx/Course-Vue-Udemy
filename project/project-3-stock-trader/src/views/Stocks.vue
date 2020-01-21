@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      stocks: 'allStocks',
+      stocks: 'stocks/allStocks',
     }),
   },
   components: {

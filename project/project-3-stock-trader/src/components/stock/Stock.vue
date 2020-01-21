@@ -3,13 +3,14 @@
     <div class="card text-left mb-3" style="max-width: 18rem;">
       <div class="card-header text-white bg-success">
         {{ stock.name }}
-        <small>(Price: {{ stock.price }})</small>
+        <small>(Price: {{ stock.price | currency }})</small>
       </div>
       <div class="card-body">
         <div class="float-left">
           <input
             type="number"
             class="form-control"
+            :class="{ danger: insufficientFunds }"
             placeholder="Quantity"
             v-model.number="quantity"
           />
@@ -18,8 +19,11 @@
           <button
             class="btn btn-success btn-outline-dark text-white"
             @click="buyStock"
-            :disabled="quantity <= 0 || !Number.isInteger(quantity)"
-            >Buy</button>
+            :disabled="
+              insufficientFunds
+              || quantity <= 0
+              || !Number.isInteger(quantity)
+            ">Buy</button>
         </div>
       </div>
     </div>
@@ -34,6 +38,14 @@ export default {
       quantity: 0,
     };
   },
+  computed: {
+    funds() {
+      return this.$store.getters['portfolio/funds'];
+    },
+    insufficientFunds() {
+      return (this.quantity * this.stock.price) > this.funds;
+    },
+  },
   methods: {
     buyStock() {
       const order = {
@@ -41,7 +53,8 @@ export default {
         stockPrice: this.stock.price,
         quantity: this.quantity,
       };
-      console.log(order);
+      console.log('Buying: ', order);
+      this.$store.dispatch('stocks/buyStock', order);
       // Reset the input
       this.quantity = 0;
     },
@@ -53,6 +66,9 @@ export default {
   input {
     &[type='number'] {
       width: 100px;
+    }
+    &.danger {
+      border-color: red;
     }
   }
 </style>

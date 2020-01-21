@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 mb-5">
       <router-link class="navbar-brand" to="/">Stock Trader</router-link>
       <button
         class="navbar-toggler" type="button"
@@ -35,11 +35,13 @@
             </a>
           </router-link>
         </ul>
+        <strong class="nav-item navbar-right">Funds: {{ funds | currency }}</strong>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item dropdown">
             <a
               class="nav-link"
-              href="#">
+              href="#"
+              @click.prevent="endDay">
               End day
             </a>
           </li>
@@ -54,8 +56,8 @@
               Save / Load
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Save data</a>
-              <a class="dropdown-item" href="#">Load data</a>
+              <a class="dropdown-item" href="#" @click.prevent="saveData">Save data</a>
+              <a class="dropdown-item" href="#" @click.prevent="loadData">Load data</a>
             </div>
           </li>
         </ul>
@@ -65,11 +67,41 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import srOnlyCurrent from '@/components/bootstrap/components/navbar/sr-only-current.vue';
+import axios from '@/axios';
 
 export default {
+  computed: {
+    funds() {
+      return this.$store.getters['portfolio/funds'];
+    },
+  },
   components: {
     srOnlyCurrent,
+  },
+  methods: {
+    ...mapActions({
+      randomizeStocks: 'stocks/randomizeStocks',
+    }),
+    endDay() {
+      this.randomizeStocks();
+    },
+    saveData() {
+      const data = {
+        funds: this.funds,
+        portfolioStocks: this.$store.getters['portfolio/portfolioStocks'],
+        stocks: this.$store.getters['stocks/allStocks'],
+      };
+      axios.put('/data.json', data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(error => console.log(error));
+    },
+    loadData() {
+      this.$store.dispatch('loadAppData');
+    },
   },
 };
 </script>
