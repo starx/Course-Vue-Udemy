@@ -40,24 +40,26 @@
     <v-content>
       <HelloWorld/>
     </v-content>
-  </v-app>
 
-  <div id="app" class="container">
-    <app-header></app-header>
-    <div class="row">
-      <div class="col-12">
-        <transition name="slide" mode="out-in">
-          <router-view/>
-        </transition>
+
+
+    <div id="app" class="container">
+      <app-header></app-header>
+      <div class="row">
+        <div class="col-12">
+          <transition name="slide" mode="out-in">
+            <router-view/>
+          </transition>
+        </div>
       </div>
     </div>
-  </div>
+  </v-app>
 
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
