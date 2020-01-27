@@ -42,7 +42,6 @@
     </v-content>
 
 
-
     <div id="app" class="container">
       <app-header></app-header>
       <div class="row">
