@@ -1,0 +1,62 @@
+#exercise > div + div {
+  margin-bottom: 3em;
+}
+#effect {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: block;
+  transition-property: width background-color;
+  transition-duration: .3s
+}
+
+#progressBar {
+  display: inline-block;
+  height: 30px;
+  transition-property: width background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+
+#dynaSingleClassDiv, #dynaMultiClassDiv, #dynaStyleValueDiv {
+  width: 100px;
+  height: 100px;
+  border: 3px solid blue;
+  display: block;
+
+  transition-property: all;
+  transition-duration: .5s;
+}
+
+.highlight {
+  background-color: red;
+  width: 200px !important;
+}
+
+.shrink {
+  background-color: gray;
+  width: 50px !important;
+}
+
+.bigBorder {
+  border-width: 10px !important;
+}
+.smallBorder {
+  border-width: 1px !important;
+}
+
+.redBorder {
+  border-color: red !important;
+}
+
+.longDiv {
+  width: 80vw !important;
+}
+.shortDiv {
+  width: 40vw !important;
+}
+.bigCircle {
+  height: 40vh !important;
+  width: 40vh !important;
+  border-radius: 50%;
+}
